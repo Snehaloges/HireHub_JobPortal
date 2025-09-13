@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Admin Users - HireHub</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}">
+
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-flex">
+      <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" class="logo">
+      <h2>Hire<span>Hub</span> Admin</h2>
+      <div class="nav-links">
+        <a href="{{ url_for('admin_dashboard') }}">Dashboard</a>
+        <a href="{{ url_for('admin_jobs') }}">Jobs</a>
+        <a href="{{ url_for('admin_applications_page') }}">Applications</a>
+        <a href="{{ url_for('admin_users') }}" class="active">Users</a>
+        <a href="/logout" class="btn">Logout</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container">
+    <h1>Registered Users</h1>
+
+    <table>
+      <thead>
+        <tr>
+          <th>S.No</th>
+          <th>Username</th>
+          <th>Email</th>
+          <th>Applied Jobs</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for user in users %}
+        <tr>
+          <td>{{ loop.index }}</td>
+          <td>{{ user.username }}</td>
+          <td>{{ user.email }}</td>
+          <td>
+            {% if user.applied_jobs %}
+              {{ user.applied_jobs | join(', ') }}
+            {% else %}
+              None
+            {% endif %}
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </main>
+</body>
+</html>

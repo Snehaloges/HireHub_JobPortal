@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>{{ job.title }} - HireHub</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/jobs.css') }}">
+</head>
+<body >
+  <nav class="nav">
+    <div class="container nav-flex">
+      <a class="brand" href="{{ url_for('home_page') }}">
+        <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" class="logo">
+        <span class="brand-name">Hire<span class="highlight">Hub</span></span>
+      </a>
+      <div class="nav-links">
+        <a href="{{ url_for('jobs_page') }}" class="btn-outline">Back to Jobs</a>
+        <a href="{{ url_for('logout') }}" class="btn">Logout</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container">
+    <div class="job-detail-card">
+      <h2>{{ job.title }}</h2>
+      <p><strong>Location:</strong> {{ job.location }}</p>
+      <p><strong>Salary:</strong> ₹{{ job.salary }}</p>
+      <h3>Description</h3>
+      <p>{{ job.description }}</p>
+      <p><strong>Experience:</strong> {{ job.experience }}</p>
+      <p><strong>Posted On:</strong> {{ job.posted_on }}</p>
+
+      {% if session.get('user_id') %}
+        {% if applied %}
+          <button class="btn-apply-applied" disabled>Already Applied</button>
+        {% else %}
+          <a href="{{ url_for('apply_job', job_id=job.id) }}" class="btn-orange">Apply Now</a>
+        {% endif %}
+      {% else %}
+        <a href="{{ url_for('home_page') }}#login" class="btn-orange">
+          <i class="fa fa-paper-plane"></i> Login to Apply
+        </a>
+      {% endif %}
+
+
+    </div>
+  </main>
+
+  <footer class="footer">© 2025 HireHub</footer>
+</body>
+</html>

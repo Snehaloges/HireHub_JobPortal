@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Apply for {{ job.title }} - HireHub</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/apply.css') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+
+  <div class="form-container">
+  <h5><a href="{{ url_for('jobs_page') }}" class="back-arrow">
+    <i class="fas fa-arrow-left"></i> Back to Jobs
+  </a></h5>
+    <h2>Apply for {{ job.title }} at {{ job.company }}</h2>
+    
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, msg in messages %}
+          <div class="flash {{ category }}">{{ msg }}</div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+    
+    <form id="applyForm" method="POST">
+      <h5><strong>Name</strong></h5>
+      <input type="text" name="name" value="{{ user.username }}" required>
+
+      <h5><strong>Email</strong></h5>
+      <input type="email" name="email" value="{{ user.email }}" required>
+
+      <h5><strong>Phone Number</strong></h5>
+      <input type="text" name="phone" value="{{ user.phone }}" required>
+
+      <h5><strong>Batch</strong></h5>
+      <input type="text" name="batch" value="{{ user.batch }}" required>
+
+      <h5><strong>Role/Position</strong></h5>
+      <input type="text" name="role" placeholder="Desired role" required>
+
+      <h5><strong>Are you okay to relocate?</strong></h5>
+      <select name="relocate" required>
+        <option value="">Select</option>
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+      </select>
+      <h5><strong>Cover Letter</strong></h5>
+      <label>Upload Resume (PDF):</label>
+      <input type="file" name="resume" accept="application/pdf" required>
+      <textarea name="coverLetter" placeholder="Write your cover letter..."></textarea>
+
+      <button type="submit" class="btn-orange">Submit Application</button>
+    </form>
+  </div>
+  <script>
+document.getElementById("applyForm").addEventListener("submit", async function(e) {
+  e.preventDefault();
+
+  const formData = new FormData(this);
+  const res = await fetch(window.location.pathname, {
+    method: "POST",
+    body: formData
+  });
+  const data = await res.json();
+
+if (data.success) {
+  alert(data.message);
+
+  setTimeout(() => {
+    alert("➡ Redirecting to Jobs Page...");
+    window.location.href = "{{ url_for('jobs_page') }}";
+  }, 5000);
+} else {
+  alert("Error: " + (data.error || "Something went wrong"));
+}
+
+});
+</script>
+
+</body>
+</html>

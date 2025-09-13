@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Admin Dashboard - HireHub</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}">
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-flex">
+      <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" class="logo">
+      <h2>Hire<span>Hub</span> Admin</h2>
+      <div class="nav-links">
+        <a href="{{ url_for('admin_dashboard') }}" class="active">Dashboard</a>
+        <a href="{{ url_for('admin_jobs') }}">Jobs</a>
+        <a href="{{ url_for('admin_applications_page') }}">Applications</a>
+        <a href="{{ url_for('admin_users') }}">Users</a> 
+        <a href="/logout" class="btn">Logout</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="main_container">
+    <img src="{{ url_for('static', filename='admin_dashboard.webp') }}" alt="Admin Dashboard" class="dashboard_image">
+    <h1>Welcome, <span style="color:#ff6a00;">Admin!</span> </h1>
+    <p>This is your admin panel.</p>
+  </main>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Manage Jobs - HireHub Admin</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}">
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-flex">
+      <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" class="logo">
+      <h2>Hire<span>Hub</span> Admin</h2>
+      <div class="nav-links">
+        <a href="{{ url_for('admin_dashboard') }}">Dashboard</a>
+        <a href="{{ url_for('admin_jobs') }}" class="active">Jobs</a>
+        <a href="{{ url_for('admin_applications_page') }}">Applications</a>
+        <a href="{{ url_for('admin_users') }}">Users</a> 
+        <a href="/logout" class="btn">Logout</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="job-container">
+    <h1>Manage Jobs</h1>
+    <div class="add-job-wrapper">
+    <button id="addJobBtn" class="add-btn-orange">+ Add Job</button>
+    </div>
+    <div id="jobsGrid"></div>
+  </main>
+
+
+  <div id="jobModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2 id="modalTitle">Add Job</h2>
+      <form id="jobForm">
+        <input type="hidden" id="jobId">
+
+        <label>Company</label>
+        <input type="text" id="company" required>
+
+        <label>Title</label>
+        <input type="text" id="jobTitle" required>
+
+        <label>Description</label>
+        <textarea id="jobDescription" required></textarea>
+
+        <label>Salary</label>
+        <input type="number" id="jobSalary" required>
+
+        <label>Location</label>
+        <input type="text" id="jobLocation" required>
+
+        <label>Experience</label>
+        <input type="text" id="jobExperience" required>
+
+        <label>Status</label>
+        <select id="jobStatus">
+          <option value="open">Open</option>
+          <option value="closed">Closed</option>
+        </select>
+
+        <button type="submit" class="btn-orange">Save Job</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='js/admin.js') }}"></script>
+</body>
+</html>

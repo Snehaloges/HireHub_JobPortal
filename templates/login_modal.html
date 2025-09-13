@@ -1,0 +1,16 @@
+<div id="loginModal" class="modal-overlay" style="display:none;">
+  <div class="auth-card">
+    <span class="close" onclick="closeLogin()">&times;</span>
+    <h4>Login</h4>
+    <div id="msg" class="muted"></div>
+    <form id="loginForm">
+      <h3>Email</h3>
+      <input id="email" type="email" placeholder="Email" required>
+      <h3>Password</h3>
+      <input id="password" type="password" placeholder="Password" required>
+      <div class="forgot"><a href="#">Forgot Password?</a></div>
+      <button class="btn" type="submit">Login</button>
+    </form>
+    <p>If you are a New User? <a href="#" onclick="closeLogin(); openRegister()">Register</a></p>
+  </div>
+</div>

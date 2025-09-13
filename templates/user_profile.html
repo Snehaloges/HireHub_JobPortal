@@ -1,0 +1,49 @@
+
+<div id="profileOverlay" onclick="closeProfilePanel()"></div>
+
+<div id="profilePanel" class="profile-panel">
+  <span class="close-btn" onclick="closeProfilePanel()">&times;</span>
+
+  {% if user %}
+  <h2>Your Profile</h2>
+
+  <div class="profile-content">
+    <div class="profile-info">
+      <label>Username</label>
+      <input type="text" value="{{ user.username }}" readonly>
+
+      <label>Email</label>
+      <input type="email" value="{{ user.email }}" readonly>
+
+      <label>Phone</label>
+      <input type="text" value="{{ user.phone if user.phone else '' }}">
+
+      <label>Resume</label>
+      {% if user.resume %}
+      <a href="{{ url_for('uploaded_resume', filename=user.resume) }}" target="_blank">View Resume</a>
+      {% else %}
+      <p><em>No resume uploaded yet.</em></p>
+      {% endif %}
+    </div>
+
+    <div class="profile-jobs">
+      <h3>Applied Jobs</h3>
+      {% if applied_jobs %}
+      <ul>
+        {% for job in applied_jobs %}
+        <li>
+          <strong>{{ job.title }}</strong> at {{ job.company }}<br>
+          <span class="date">Applied on {{ job.date }}</span>
+        </li>
+        {% endfor %}
+      </ul>
+      {% else %}
+      <p><em>No jobs applied yet.</em></p>
+      {% endif %}
+    </div>
+  </div>
+
+  {% else %}
+  <p>Please login to view profile details.</p>
+  {% endif %}
+</div>

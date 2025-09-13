@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Applications - Admin</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}">
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-flex">
+      <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" class="logo">
+      <h2>Hire<span>Hub</span> Admin</h2>
+      <div class="nav-links">
+        <a href="{{ url_for('admin_dashboard') }}" class="btn-outline">Dashboard</a>
+        <a href="{{ url_for('admin_jobs') }}" class="btn-outline">Jobs</a>
+        <a href="{{ url_for('admin_applications_page') }}" class="btn-outline active">Applications</a>
+        <a href="{{ url_for('admin_users') }}">Users</a>
+        <a href="/logout" class="btn">Logout</a>
+      </div>
+    </div>
+  </nav>
+
+
+  <main class="container">
+    <h1>Applications</h1>
+    <div id="applicationsGrid"></div>
+  </main>
+
+
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+  <script>
+    async function loadApplications() {
+      try {
+        const res = await fetchWithAuth("/admin/applications");
+        if (!res.ok) {
+          document.getElementById("applicationsGrid").innerHTML =
+            `<p style="color:red;">Failed to load applications (Error ${res.status})</p>`;
+          return;
+        }
+
+        const apps = await res.json();
+        const grid = document.getElementById("applicationsGrid");
+
+        if (!apps || apps.length === 0) {
+          grid.innerHTML = "<p>No applications yet.</p>";
+          return;
+        }
+
+        grid.innerHTML = apps.map(a => `
+          <div class="card">
+            <h3>${a.job_title}</h3>
+            <p><strong>Name:</strong> ${a.name}</p>
+            <p><strong>Email:</strong> ${a.email}</p>
+            <p><strong>Phone:</strong> ${a.phone}</p>
+            <p><strong>Batch:</strong> ${a.batch}</p>
+            <p><strong>Role:</strong> ${a.role}</p>
+            <p><strong>Relocate:</strong> ${a.relocate}</p>
+            <p><strong>Applied On:</strong> ${a.date_applied}</p>
+            <p><strong>Cover Letter:</strong> ${a.cover_letter || "N/A"}</p>
+            <p><strong>Resume:</strong> 
+              ${a.resume_path ? `<a href="/uploads/resumes/${a.resume_path}" target="_blank">Download</a>` : "N/A"}
+            </p>
+          </div>
+        `).join("");
+      } catch (err) {
+        console.error("Error loading applications:", err);
+        document.getElementById("applicationsGrid").innerHTML =
+          "<p style='color:red;'>Something went wrong.</p>";
+      }
+    }
+
+    loadApplications();
+  </script>
+</body>
+</html>

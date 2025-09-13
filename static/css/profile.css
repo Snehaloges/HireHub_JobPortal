@@ -1,0 +1,104 @@
+
+#profileOverlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: none;
+  z-index: 999;
+}
+
+.profile-panel {
+  position: fixed;
+  top: 0;
+  right: -400px; 
+  width: 350px;
+  height: 100%;
+  background: white;
+  color: black; 
+  box-shadow: -4px 0 20px rgba(0,0,0,0.5);
+  padding: 20px;
+  z-index: 1000;
+  transition: right 0.3s ease;
+  overflow-y: auto;
+  font-family: Arial, sans-serif;
+}
+
+.profile-panel.show {
+  right: 0;
+}
+
+
+.profile-panel .close-btn {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 24px;
+  font-weight: bold;
+  color: black;
+  cursor: pointer;
+}
+
+
+.profile-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+
+.profile-info label {
+  font-weight: bold;
+  margin-top: 10px;
+  display: block;
+  color:black;
+}
+
+.profile-info input {
+  width: 100%;
+  padding: 6px 8px;
+  margin-top: 4px;
+  border: 1px solid #555;
+  border-radius: 6px;
+  font-size: 14px;
+  background:  #fff; 
+  color: black; 
+}
+
+.profile-info input::placeholder {
+  color: #bbb;
+}
+
+.profile-info a {
+  padding: top 10px;
+  color: #082567;
+  text-decoration: none;
+}
+
+.profile-info a:hover {
+  text-decoration: underline;
+}
+
+
+.profile-jobs h3,h2 {
+  color: #082567;
+  text-align: center;
+}
+
+.profile-jobs ul {
+  list-style: none;
+  padding: 0;
+}
+
+.profile-jobs ul li {
+  background: #e2dede;
+  padding: 8px 10px;
+  margin-bottom: 6px;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.profile-jobs .date {
+  font-size: 12px;
+  color: #0e0909;
+}

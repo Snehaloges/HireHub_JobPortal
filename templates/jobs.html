@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Jobs - HireHub</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/jobs.css') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <nav class="nav">
+    <div class="container nav-flex">
+      <a class="brand" href="{{ url_for('home_page') }}">
+        <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" class="logo">
+        <span class="brand-name">Hire<span class="highlight">Hub</span></span>
+      </a>
+      <div class="nav-links">
+        <a href="{{ url_for('home_page') }}" class="btn-outline">Home</a>
+        <a href="{{ url_for('logout') }}" class="btn">Logout</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container">
+    <h2 style="text-align:center">Jobs For You</h2>
+
+    <form method="GET" action="{{ url_for('jobs_page') }}" class="search-bar">
+      <div class="input-icon">
+        <i class="fa fa-briefcase"></i>
+        <input type="text" id="searchRole" name="role" placeholder="Job title" value="{{ role }}">
+      </div>
+      <div class="input-icon">
+        <i class="fa fa-location-dot"></i>
+        <input type="text" id="searchLocation" name="location" placeholder="City, state, or remote" value="{{ location }}">
+      </div>
+      <button type="submit"><i class="fa fa-search"></i> Find jobs</button>
+    </form>
+
+
+    {% if jobs %}
+      <div class="jobs-list">
+        {% for j in jobs %}
+          <div class="job-card">
+            <div>
+              <h3>
+                <a href="{{ url_for('job_details', job_id=j.id) }}" class="job-title-link">
+                  {{ j.title }}
+                </a>
+              </h3>
+              <p><strong>{{ j.company }}</strong>
+                {% if j.status == "open" %}
+                  <span class="status-badge open"><i class="fa fa-check-circle"></i> Open</span>
+                {% else %}
+                  <span class="status-badge closed"><i class="fa fa-times-circle"></i> Closed</span>
+                {% endif %}
+              </p>
+              <p><i class="fa fa-indian-rupee-sign"></i> Salary: {{ j.salary }} &nbsp;&nbsp; 
+                 <span><i class="fa fa-location-dot"></i> {{ j.location }}</span></p>
+              <p><i class="fa fa-briefcase"></i> Experience: {{ j.experience }}</p>
+              <h6><i class="fa fa-calendar"></i> Posted on {{ j.posted_on }}</h6>
+            </div>
+            <div class="actions">
+                {% if j.status == 'open' %}
+                  {% if session.get('user_id') %}
+                    {% if j.applied %}
+                      <button class="btn-apply-applied" disabled>
+                        <i class="fa fa-check"></i> Applied
+                      </button>
+                    {% else %}
+                      <a href="{{ url_for('apply_job', job_id=j.id) }}" class="btn-apply">
+                        <i class="fa fa-paper-plane"></i> Apply Now
+                      </a>
+                    {% endif %}
+
+
+                  {% else %}
+                    <a href="{{ url_for('home_page') }}#login" class="btn-apply">
+                      <i class="fa fa-paper-plane"></i> Login to Apply
+                    </a>
+                  {% endif %}
+                {% else %}
+                  <button class="btn-closed" disabled>
+                    <i class="fa fa-paper-plane"></i> Closed
+                  </button>
+                {% endif %}
+             </div>
+          </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <p style="text-align:center;">No jobs found.</p>
+    {% endif %}
+  </main>
+
+  <footer class="footer">© 2025 HireHub</footer>
+</body>
+</html>

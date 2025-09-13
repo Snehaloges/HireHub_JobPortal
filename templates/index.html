@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>HireHub</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/profile.css') }}">
+  
+  </head>
+
+<body >
+  <nav class="nav">
+    <div class="container nav-flex">
+      <a class="brand" href="{{ url_for('home_page') }}">
+        <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" class="logo">
+        <span class="brand-name">Hire<span class="highlight">Hub</span></span>
+      </a>
+
+    <div class="nav-links">
+    {% if session.get('user_id') %}
+      <div class="log-browse"> <a href="{{ url_for('jobs_page') }}" class="btn-outline">Browse Jobs</a>
+      </div>
+      <button class="btn" onclick="openLogin()">Login</button>
+      <div class="dropdown">
+        <button class="dropbtn">
+          <img src="{{ url_for('static', filename='profile.jpg') }}" 
+              alt="Profile" class="avatar">
+        </button>
+        <div class="dropdown-content">
+          <span class="username"> {{ session.get('username') }}</span>
+          <a href="javascript:void(0)" onclick="openProfilePanel()">Profile</a>
+          {% if not session.get('resume_uploaded') %}
+            <a href="#" onclick="openResumeModal()">Upload Resume</a>
+          {% endif %}
+          <a href="{{ url_for('logout') }}">Logout</a>
+        </div>
+      </div>
+    {% else %}
+      <a href="{{ url_for('jobs_page') }}" class="btn-outline">Browse Jobs</a>
+      <button class="btn" onclick="openLogin()">Login</button>
+      <button class="btn" onclick="openRegister()">Register</button>
+    {% endif %}
+    </div>
+    </div>
+  </nav>
+
+  <header class="page">
+    <div class="page-content">
+      <h3 style="text-align:center;">Find the
+         <span class="underline">Jobs                <svg class="underline-svg" viewBox="0 0 200 30">
+                    <path d="M0 20 Q50 5, 200 20" />
+                    <path d="M0 25 Q50 10, 200 25" />
+                </svg>
+          </span>
+          that match your dreams</h3>
+      <h1>Bridging skills with opportunities</h1>
+      <p style="text-align:center;">Search jobs quickly — simple & fast.</p>
+      <div class="search-bar">
+        <input type="text" id="searchRole" placeholder="Search by role">
+        <input type="text" id="searchLocation" placeholder="Search by location">
+        <button type="button" class="btn-orange" onclick="searchJobs()">Search</button>
+      </div>
+    </div>
+    <div class="page-image">
+      <img src="{{ url_for('static', filename='side.png') }}" alt="Image">
+    </div>
+  </header>
+  {% include 'user_profile.html' %}
+  {% include 'login_modal.html' %}
+  {% include 'register_modal.html' %}
+  <div id="resumeModal" class="modal-overlay">
+      <div class="auth-card">
+          <span class="close" onclick="closeResumeModal()">&times;</span>
+          <h3>Upload Resume</h3>
+          <form id="resumeForm" enctype="multipart/form-data">
+              <input type="file" id="resumeFile" accept=".pdf,.doc,.docx" required>
+              <p style="font-size:12px;color:gray;">Max size: 1MB (PDF/DOC/DOCX)</p>
+              <button type="submit" class="btn">Upload</button>
+          </form>
+      </div>
+  </div>
+  <footer class="footer">© 2025 HireHub</footer>
+
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+
+</body>
+</html>

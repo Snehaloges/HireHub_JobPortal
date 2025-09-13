@@ -1,0 +1,137 @@
+
+body{
+    background: #cfd7e8;
+}
+.form-container {
+ width: 100%;         
+  max-width: 800px;   
+  min-width: 300px;   margin: 60px auto;
+  padding: 30px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  font-family: 'Segoe UI', sans-serif;
+   overflow-x: auto; 
+}
+
+
+.form-container h2 {
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 25px;
+  color: #082567;
+  text-align: center;
+  line-height: 1.4;
+}
+
+
+.form-container h5 {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #082567;
+}
+
+
+.form-container input,
+.form-container select,
+.form-container textarea {
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 18px;
+  border: 1px solid #082567;
+  background: #f9f9f9;
+  border-radius: 10px;
+  font-size: 14px;
+  width:90%;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+
+.form-container input:focus,
+.form-container select:focus,
+.form-container textarea:focus {
+  border-color: #ff6a00;
+  box-shadow: 0 0 4px rgba(255, 106, 0, 0.4);
+  outline: none;
+}
+
+
+.form-container textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+
+.btn-orange {
+  display: inline-block;
+  width: 100%;
+  padding: 14px;
+  background: #ff6a00;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.15s;
+}
+
+.btn-orange:hover {
+  background: #e65a00;
+  transform: translateY(-2px);
+}
+
+.btn-orange:active {
+  transform: translateY(0);
+}
+
+
+.flash {
+  padding: 12px 15px;
+  margin-bottom: 18px;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.flash.success {
+  background: #e8f8f0;
+  color: #2b7a4b;
+  border: 1px solid #b5e3c5;
+}
+
+.flash.error {
+  background: #fbeaea;
+  color: #a33a3a;
+  border: 1px solid #f2b1b1;
+}
+
+.flash.info {
+  background: #eaf3fb;
+  color: #2a5d8a;
+  border: 1px solid #aacbee;
+}
+
+@media (max-width: 800px) {
+  .form-container {
+    padding: 20px;
+    margin: 30px 15px;
+  }
+}
+
+.back-arrow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  color: black;
+  font-weight: 600;
+  font-size: 14px;
+  transition: color 0.3s;
+}
+
+.back-arrow i {
+  font-size: 16px;
+}
+
