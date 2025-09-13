@@ -1,0 +1,242 @@
+{
+	"id": "b27e78bf-462f-41d5-8fa6-3c8e2f05500d",
+	"name": "JobPortalAPI",
+	"timestamp": "2025-09-11T09:59:15.593Z",
+	"collection_id": "40407891-8ab32ec7-1551-4612-9c6f-1eac2db769e4",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 0,
+	"delay": 0,
+	"persist": true,
+	"status": "finished",
+	"startedAt": "2025-09-11T09:59:09.840Z",
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "e4a7a9f6-f4cf-44f8-a923-b1a7d6cfe6e4",
+			"name": "register",
+			"url": "http://127.0.0.1:5000/register",
+			"time": 72,
+			"responseCode": {
+				"code": 400,
+				"name": "BAD REQUEST"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				72
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "377eafe3-08c3-4999-8f25-4eaee4e625e7",
+			"name": "Login",
+			"url": "http://127.0.0.1:5000/login",
+			"time": 1351,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				1351
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "cab501e4-8fda-4739-a2c0-ea9ed08d9f1f",
+			"name": "upload_resume",
+			"url": "http://127.0.0.1:5000/upload_resume",
+			"time": 19,
+			"responseCode": {
+				"code": 400,
+				"name": "BAD REQUEST"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				19
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "9b490a67-f41a-4864-85d2-fb319be38b12",
+			"name": "user_logout",
+			"url": "http://127.0.0.1:5000/logout",
+			"time": 83,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				83
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "21a6516c-c8b2-4fb7-8e02-1b446aa8f73d",
+			"name": "admin_login",
+			"url": "http://127.0.0.1:5000/login",
+			"time": 1485,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				1485
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "3cf4ea6d-8e73-42e7-accf-5d48e7c945fe",
+			"name": "users_admins",
+			"url": "http://127.0.0.1:5000/admin/users",
+			"time": 13,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				13
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "509383b9-32e4-4286-9553-acc60b68b376",
+			"name": "admin_add_job",
+			"url": "http://127.0.0.1:5000/admin/add_job",
+			"time": 74,
+			"responseCode": {
+				"code": 201,
+				"name": "CREATED"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				74
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "db9254cf-b0b0-4333-98fd-cca0dcdf4281",
+			"name": "jobs_json",
+			"url": "http://127.0.0.1:5000/admin/jobs_json",
+			"time": 36,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				36
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "54c7fbaf-03b8-4aa9-8555-a518323dbd4d",
+			"name": "edit_job",
+			"url": "http://127.0.0.1:5000/admin/edit_job/1",
+			"time": 19,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				19
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "91de9f1b-88cd-4aaa-bb18-47c0239b22e5",
+			"name": "admin_view",
+			"url": "http://127.0.0.1:5000/admin/applications",
+			"time": 19,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				19
+			],
+			"allTests": [
+				{}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 3171,
+	"collection": {
+		"requests": [
+			{
+				"id": "e4a7a9f6-f4cf-44f8-a923-b1a7d6cfe6e4",
+				"method": "POST"
+			},
+			{
+				"id": "377eafe3-08c3-4999-8f25-4eaee4e625e7",
+				"method": "POST"
+			},
+			{
+				"id": "cab501e4-8fda-4739-a2c0-ea9ed08d9f1f",
+				"method": "POST"
+			},
+			{
+				"id": "9b490a67-f41a-4864-85d2-fb319be38b12",
+				"method": "GET"
+			},
+			{
+				"id": "21a6516c-c8b2-4fb7-8e02-1b446aa8f73d",
+				"method": "POST"
+			},
+			{
+				"id": "3cf4ea6d-8e73-42e7-accf-5d48e7c945fe",
+				"method": "GET"
+			},
+			{
+				"id": "509383b9-32e4-4286-9553-acc60b68b376",
+				"method": "POST"
+			},
+			{
+				"id": "db9254cf-b0b0-4333-98fd-cca0dcdf4281",
+				"method": "GET"
+			},
+			{
+				"id": "54c7fbaf-03b8-4aa9-8555-a518323dbd4d",
+				"method": "PUT"
+			},
+			{
+				"id": "91de9f1b-88cd-4aaa-bb18-47c0239b22e5",
+				"method": "GET"
+			}
+		]
+	}
+}

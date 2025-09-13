@@ -1,0 +1,25 @@
+Module,Test Case,Steps,Expected Result,Status
+User,Registration - Valid,Enter valid details,User should be registered,Pass
+User,Registration - Invalid Email,Enter email: abc@,Show error message,Pass
+User,Registration - Password Mismatch,Enter passwords that do not match,Show mismatch error,Pass
+User,Registration - Duplicate Email,Register with existing email,Show 'user exists' error,
+User,Login - Valid,Enter correct email & password,Redirect to dashboard,Pass
+User,Login - Invalid,Enter wrong password,Invalid Credentials ,Pass
+User,Login - Empty Fields,Leave fields blank,Show validation error,Pass
+User,View Jobs - Logged In,Login and open jobs page,Show job listings,Pass
+User,View Jobs - Not Logged In,Open jobs page without login,Redirect to login,Pass
+User,Apply Job - Valid,Apply for a job after login,Show success confirmation,Pass
+User,Apply Job - Duplicate,Apply same job twice,Show 'already applied' error,Pass
+User,Apply Job - Not Logged In,Try applying without login,Redirect to login,Pass
+Admin,Login - Valid,Enter correct credentials,Redirect to admin dashboard,Pass
+Admin,Login - Invalid,Enter wrong credentials,Show error message,Pass
+Admin,Post Job - Valid,Enter all details,Job should be added,Pass
+Admin,Post Job - Missing Fields,Leave required fields empty,Show validation error,Pass
+Admin,View Applicants,Open applicants list,Show applicant details,Pass
+Admin,Delete Job,Delete an existing job,Job should be removed,Pass
+Admin,Logout,Logout from admin panel,Redirect to login page,Pass
+Admin,User_profile,shows the registered user profile,shows the user profile details,Pass
+General,Navigation,Click all menu links,All pages open correctly,Pass
+General,Security - Admin Access,Open admin URL without login,Redirect to login,Pass
+General,Security - User Access,Open user URL without login,Redirect to login,Pass
+General,Logout - Session Clear,Logout and press back button,Should not reopen dashboard,Pass
