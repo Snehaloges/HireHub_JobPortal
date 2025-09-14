@@ -73,6 +73,12 @@ Written a testcases and verify  the test case passes
 
 - Verify request and response data to ensure correct functionality of backend routes.
 
+## Jenkins (simplest Deployment)
+
+-Project includes basic CI/CD setup using Jenkins for automated deployment.  
+-Jenkins pulls the latest code from GitHub, installs dependencies, and runs the Flask app automatically.  
+-It helped me understand the workflow of continuous integration and deployment for a web application.
+
 
 ## Demo:
 
