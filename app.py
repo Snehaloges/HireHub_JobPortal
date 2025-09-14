@@ -496,6 +496,11 @@ def logout():
     session.pop("role", None)
     return redirect(url_for("home_page"))
 
-
 if __name__ == "__main__":
+    import webbrowser
+    import threading
+
+    threading.Timer(1.5, lambda: webbrowser.open("http://127.0.0.1:5000")).start()
+
     app.run(host="0.0.0.0", port=5000, debug=True)
+
