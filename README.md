@@ -79,8 +79,7 @@ Written a testcases and verify  the test case passes
 -Jenkins pulls the latest code from GitHub, installs dependencies, and runs the Flask app automatically.  
 -It helped me understand the workflow of continuous integration and deployment for a web application.
 
-<img width="1920" height="1080" alt="Screenshot (265)" src="https://github.com/user-attachments/assets/
-   3edec88c-9661-4e42-b29a-2b00fb79accb" />
+<img width="1920" height="1080" alt="Screenshot (265)" src="https://github.com/user-attachments/assets/3edec88c-9661-4e42-b29a-2b00fb79accb" />
 
 
 
