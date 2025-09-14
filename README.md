@@ -2,7 +2,7 @@
 # HireHub Job Portal
 
 ## Overview
-HireHub is a simple **job portal application** built with **Python and Flask**. It provides users with a platform to **view available jobs, apply for positions**, and allows admins to **manage job listings** efficiently. This project helped me understand the basics of web development, working with templates, routing, forms, sessions, and integrating CI/CD pipelines using Jenkins for deployment.
+HireHub is a simple **job portal application** built with **Python and Flask**. It provides users with a platform to **view available jobs, apply for positions**, and allows admins to **manage job listings** efficiently. This project helped me understand the basics of web development, working with templates, routing, forms, sessions, and integrating CI/CD freestyle projects using Jenkins for deployment.
 
 # HireHub Job Portal
 
