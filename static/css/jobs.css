@@ -256,14 +256,14 @@ body {
   font-size: 14px;
 }
 
-/* Full width white background */
+
 .job-container {
   width: 100%;
   background: #fff;
   padding: 40px 0;
 }
 
-/* Centered job card */
+
 .job-detail-card {
   max-width:1200px;
   margin: auto;
