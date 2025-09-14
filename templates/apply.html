@@ -68,7 +68,7 @@ if (data.success) {
   alert(data.message);
 
   setTimeout(() => {
-    alert("➡ Redirecting to Jobs Page...");
+    alert(" Redirecting to Jobs Page...");
     window.location.href = "{{ url_for('jobs_page') }}";
   }, 5000);
 } else {
