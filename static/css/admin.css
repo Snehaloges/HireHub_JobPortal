@@ -135,7 +135,7 @@ main.main_container p {
 }
 
 
-/* Job card */
+
 .card {
   background: white;
   border: 1px solid #ddd;
@@ -293,26 +293,33 @@ main.main_container p {
         width: 100%; 
         max-width: 400px; 
         margin-bottom: 1rem;
-    }
-    table {
+       }
+table {
         width: 100%;
         border-collapse: collapse;
         min-width: 600px;
     }
-    th, td {
+th, td {
         border: 1px solid #ddd;
         padding: 0.8rem 1rem;
         text-align: left;
     }
-    th {
+th {
         background-color: #333;
         color: #fff;
     }
-    tr:nth-child(even) { background-color: #f9f9f9; }
-    tr:hover { background-color: #f1f1f1; }
-    .resume-link {
+tr:nth-child(even) { 
+  background-color: #f9f9f9; 
+}
+tr:hover {
+   background-color: #f1f1f1;
+   }
+.resume-link {
         color: #ff6a00;
         text-decoration: none;
         font-weight: bold;
     }
-    .resume-link:hover { text-decoration: underline; }
+.resume-link:hover { 
+  text-decoration: underline;
+ }
+
