@@ -18,50 +18,43 @@ HireHub is a simple **job portal application** built with **Python and Flask**. 
 
 ## Installation
 1. **Clone the repository:**  
-   ```bash
-   git clone https://github.com/Snehaloges/HireHub_JobPortal.git
-   cd HireHub_JobPortal
-
-## Installation
-Follow these steps to run the project locally:
-
-1. **Clone the repository**:  
 
    git clone https://github.com/Snehaloges/HireHub_JobPortal.git
    cd HireHub_JobPortal
+
 
 2.**Create a virtual environment:**
 
     python -m venv venv
 Activate the virtual environment:
 
-3.**Windows**:
+3.**Windows:**
 
-   venv\Scripts\activate
+     venv\Scripts\activate
 
 
- **Linux/Mac**:
+ **Linux/Mac:**
 
    source venv/bin/activate
 
 
 ## Install dependencies:
 
-pip install -r requirements.txt
+    pip install -r requirements.txt
 
 ## Running the App
 
-**Start the Flask server:**
 
 python app.py
 
 
 **Open your browser and go to:**
 
-http://127.0.0.1:5000
+    http://127.0.0.1:5000
 
 ## Manual Testing:
-Written a testcases and verify  the test case passes
+- Written a testcases
+- Verified that the test cases are passed. 
 
 ## Postman Testing
 
@@ -72,7 +65,9 @@ Written a testcases and verify  the test case passes
 ## Jenkins (simplest Deployment)
 
 -Project includes basic CI/CD setup using Jenkins for automated deployment.  
+
 -Jenkins pulls the latest code from GitHub, installs dependencies, and runs the Flask app automatically.  
+
 -It helped me understand the workflow of continuous integration and deployment for a web application.
 
 <img width="1920" height="1080" alt="Screenshot (265)" src="https://github.com/user-attachments/assets/3edec88c-9661-4e42-b29a-2b00fb79accb" />
@@ -114,15 +109,15 @@ Written a testcases and verify  the test case passes
 
 ## Learning Outcome
 
-Learned to build a web application with Flask.
+-Learned to build a web application with Flask.
 
-Gained experience with routing, templates, forms, sessions, and basic authentication.
+-Gained experience with routing, templates, forms, sessions, and basic authentication.
 
-Practiced virtual environment setup and dependency management.
+-Practiced virtual environment setup and dependency management.
 
-Learned debugging and problem-solving while integrating multiple features.
+-Learned debugging and problem-solving while integrating multiple features.
 
-Got basic exposure to CI/CD with Jenkins for automated project deployment.
+-Got basic exposure to CI/CD with Jenkins for automated project deployment and Postman Testing.
 
 
 
